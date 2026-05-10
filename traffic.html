@@ -1,1 +1,51 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Traffic Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { margin:0; background:#1A1A1A; color:#E6E6E6; font-family:Roboto,sans-serif; }
+  .container { width:95%; margin:auto; padding:20px 0; }
+  .row { display:flex; gap:20px; flex-wrap:wrap; }
+  .tile { background:#222; border-radius:12px; padding:10px; margin-bottom:20px; box-shadow:0 0 10px rgba(0,0,0,0.4); flex:1 1 45%; min-width:260px; }
+  h2 { margin:0 0 10px; color:#4DB6F7; font-size:22px; }
+  h3 { margin:0 0 8px; font-size:18px; }
+  iframe { border:none; width:100%; height:260px; }
+</style>
+<script>
+  setTimeout(() => location.reload(), 5 * 60 * 1000);
+</script>
+</head>
+<body>
+<div class="container">
+  <h2>Traffic – From 1017 McBride Ave</h2>
+  <div class="row">
+    <div class="tile">
+      <h3>→ Square One</h3>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBcKIYd0e37KqM_9fB81aopsGYixLBLT4Y&origin=1017+McBride+Ave+Mississauga&destination=Square+One+Mississauga&mode=driving">
+      </iframe>
+    </div>
+    <div class="tile">
+      <h3>→ Port Credit</h3>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBcKIYd0e37KqM_9fB81aopsGYixLBLT4Y&origin=1017+McBride+Ave+Mississauga&destination=Port+Credit+Mississauga&mode=driving">
+      </iframe>
+    </div>
+    <div class="tile">
+      <h3>→ Kipling Terminal</h3>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBcKIYd0e37KqM_9fB81aopsGYixLBLT4Y&origin=1017+McBride+Ave+Mississauga&destination=Kipling+Transit+Hub&mode=driving">
+      </iframe>
+    </div>
+    <div class="tile">
+      <h3>→ Flynn Group of Companies</h3>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBcKIYd0e37KqM_9fB81aopsGYixLBLT4Y&origin=1017+McBride+Ave+Mississauga&destination=Flynn+Group+of+Companies+Mississauga&mode=driving">
+      </iframe>
+    </div>
+  </div>
+</div>
+</body>
+</html>
