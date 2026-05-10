@@ -15,36 +15,74 @@
   .container {
     width: 95%;
     margin: auto;
-    padding: 10px 0;
-  }
-  .row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    padding: 20px 0;
   }
   .tile {
     background: #222;
     border-radius: 12px;
-    padding: 8px;
-    margin-bottom: 12px;
+    padding: 12px;
+    margin-bottom: 15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    flex: 1 1 45%;
-    min-width: 260px;
   }
   h2 {
-    margin: 0 0 6px;
+    margin: 0 0 10px;
     color: #4DB6F7;
+    font-size: 22px;
+  }
+  .symbol {
     font-size: 20px;
+    font-weight: bold;
   }
-  iframe {
-    border: none;
-    width: 100%;
-    height: 200px;
+  .price {
+    font-size: 26px;
+    margin-top: 5px;
   }
+  .change {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  .green { color: #4CAF50; }
+  .red { color: #F44336; }
 </style>
 
 <script>
-  setTimeout(() => location.reload(), 5 * 60 * 1000);
+const API_KEY = "ZEKvkkMEOco37uriVLThOiwmFlt1I43E";
+
+const symbols = {
+  "TSX": "^GSPTSE",
+  "S&P 500": "^GSPC",
+  "NASDAQ": "^IXIC",
+  "Crude Oil": "CL=F",
+  "Gold": "GC=F"
+};
+
+async function loadData() {
+  for (const [name, symbol] of Object.entries(symbols)) {
+    const url = `https://financialmodelingprep.com/api/v3/quote/${encodeURIComponent(symbol)}?apikey=${API_KEY}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      const item = data[0];
+
+      const price = item.price.toFixed(2);
+      const change = item.change.toFixed(2);
+      const changePct = item.changesPercentage.toFixed(2);
+
+      const color = change >= 0 ? "green" : "red";
+
+      document.getElementById(name).innerHTML = `
+        <div class="symbol">${name}</div>
+        <div class="price">$${price}</div>
+        <div class="change ${color}">${change} (${changePct}%)</div>
+      `;
+    } catch (e) {
+      document.getElementById(name).innerHTML = "<div>Error loading data</div>";
+    }
+  }
+}
+
+setInterval(loadData, 5 * 60 * 1000);
+window.onload = loadData;
 </script>
 
 </head>
@@ -52,29 +90,13 @@
 <div class="container">
 
   <h2>Markets</h2>
-  <div class="row">
 
-    <div class="tile">
-      <iframe src="https://tradingeconomics.com/canada/stock-market/embed"></iframe>
-    </div>
+  <div class="tile" id="TSX"></div>
+  <div class="tile" id="S&P 500"></div>
+  <div class="tile" id="NASDAQ"></div>
+  <div class="tile" id="Crude Oil"></div>
+  <div class="tile" id="Gold"></div>
 
-    <div class="tile">
-      <iframe src="https://tradingeconomics.com/united-states/stock-market/embed"></iframe>
-    </div>
-
-    <div class="tile">
-      <iframe src="https://tradingeconomics.com/united-states/nasdaq-composite/embed"></iframe>
-    </div>
-
-    <div class="tile">
-      <iframe src="https://tradingeconomics.com/commodity/crude-oil/embed"></iframe>
-    </div>
-
-    <div class="tile">
-      <iframe src="https://tradingeconomics.com/commodity/gold/embed"></iframe>
-    </div>
-
-  </div>
 </div>
 </body>
 </html>
