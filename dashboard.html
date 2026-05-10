@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brian's Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #1A1A1A;
+        font-family: 'Roboto', sans-serif;
+        color: #E6E6E6;
+        overflow-y: scroll;
+    }
+
+    .container {
+        width: 95%;
+        margin: auto;
+        padding-top: 20px;
+    }
+
+    .tile {
+        background: #222222;
+        border-radius: 12px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .col-2 { width: 48%; }
+    .col-3 { width: 32%; }
+    .col-4 { width: 23.5%; }
+    .col-5 { width: 18%; }
+
+    iframe {
+        border: none;
+        width: 100%;
+    }
+
+    h2 {
+        margin: 0 0 10px 0;
+        font-size: 22px;
+        color: #4DB6F7;
+    }
+</style>
+
+<!-- Auto-refresh every 5 minutes -->
+<script>
+    setTimeout(() => { location.reload(); }, 5 * 60 * 1000);
+</script>
+
+</head>
+<body>
+<div class="container">
+
+<!-- WEATHER SECTION -->
+<h2>Weather</h2>
+<div class="tile">
+    <iframe src="https://openweathermap.org/widgets/hourly?lat=43.6&lon=-79.6&units=metric" height="220"></iframe>
+</div>
+
+<div class="tile">
+    <iframe src="https://openweathermap.org/widgets/forecast?lat=43.6&lon=-79.6&units=metric" height="220"></iframe>
+</div>
+
+<!-- MARKETS SECTION -->
+<h2>Markets</h2>
+<div class="row">
+    <div class="tile col-5">
+        <iframe height="120" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TSX%3ATSX"></iframe>
+    </div>
+    <div class="tile col-5">
+        <iframe height="120" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=SP%3ASPX"></iframe>
+    </div>
+    <div class="tile col-5">
+        <iframe height="120" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=NASDAQ%3ACOMP"></iframe>
+    </div>
+    <div class="tile col-5">
+        <iframe height="120" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TVC%3AUSOIL"></iframe>
+    </div>
+    <div class="tile col-5">
+        <iframe height="120" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TVC%3AGOLD"></iframe>
+    </div>
+</div>
+
+<!-- TRAFFIC SECTION -->
+<h2>Traffic</h2>
+<div class="row">
+    <div class="tile col-4">
+        <iframe height="200" src="https://www.google.com/maps/dir/?api=1&origin=1017+McBride+Ave+Mississauga&destination=Square+One+Mississauga&travelmode=driving"></iframe>
+    </div>
+    <div class="tile col-4">
+        <iframe height="200" src="https://www.google.com/maps/dir/?api=1&origin=1017+McBride+Ave+Mississauga&destination=Port+Credit+Mississauga&travelmode=driving"></iframe>
+    </div>
+    <div class="tile col-4">
+        <iframe height="200" src="https://www.google.com/maps/dir/?api=1&origin=1017+McBride+Ave+Mississauga&destination=Kipling+Transit+Hub&travelmode=driving"></iframe>
+    </div>
+    <div class="tile col-4">
+        <iframe height="200" src="https://www.google.com/maps/dir/?api=1&origin=1017+McBride+Ave+Mississauga&destination=Flynn+Group+of+Companies+Mississauga&travelmode=driving"></iframe>
+    </div>
+</div>
+
+<!-- CALENDAR SECTION -->
+<h2>Upcoming Events</h2>
+<div class="tile">
+    <iframe height="500" src="https://calendar.google.com/calendar/embed?mode=AGENDA"></iframe>
+</div>
+
+</div>
+</body>
+</html>
