@@ -36,7 +36,6 @@
 </style>
 
 <script>
-  // Auto-refresh every 5 minutes
   setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
 
@@ -46,15 +45,15 @@
 
   <h2>Hourly Forecast</h2>
   <div class="tile">
-    <iframe height="350"
-      src="https://www.meteoblue.com/en/weather/hourly/mississauga_canada_6075357">
+    <iframe height="420"
+      src="https://www.meteoblue.com/en/weather/widget/hourly/mississauga_canada_6075357?geoloc=fixed&nocurrent=1&days=2&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=dark">
     </iframe>
   </div>
 
   <h2>7‑Day Forecast</h2>
   <div class="tile">
-    <iframe height="350"
-      src="https://www.meteoblue.com/en/weather/week/mississauga_canada_6075357">
+    <iframe height="420"
+      src="https://www.meteoblue.com/en/weather/widget/daily/mississauga_canada_6075357?geoloc=fixed&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=dark">
     </iframe>
   </div>
 
