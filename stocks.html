@@ -4,37 +4,76 @@
 <meta charset="UTF-8">
 <title>Stocks Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-  body { margin:0; background:#1A1A1A; color:#E6E6E6; font-family:Roboto,sans-serif; }
-  .container { width:95%; margin:auto; padding:20px 0; }
-  .row { display:flex; gap:20px; flex-wrap:wrap; }
-  .tile { background:#222; border-radius:12px; padding:10px; margin-bottom:20px; box-shadow:0 0 10px rgba(0,0,0,0.4); flex:1 1 18%; min-width:180px; }
-  h2 { margin:0 0 10px; color:#4DB6F7; font-size:22px; }
-  iframe { border:none; width:100%; height:130px; }
+  body {
+    margin: 0;
+    background: #1A1A1A;
+    color: #E6E6E6;
+    font-family: Roboto, sans-serif;
+  }
+  .container {
+    width: 95%;
+    margin: auto;
+    padding: 20px 0;
+  }
+  .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .tile {
+    background: #222;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    flex: 1 1 18%;
+    min-width: 180px;
+  }
+  h2 {
+    margin: 0 0 10px;
+    color: #4DB6F7;
+    font-size: 22px;
+  }
+  iframe {
+    border: none;
+    width: 100%;
+    height: 130px;
+  }
 </style>
+
 <script>
   setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
+
 </head>
 <body>
 <div class="container">
+
   <h2>Markets</h2>
   <div class="row">
+
     <div class="tile">
       <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TSX%3ATSX"></iframe>
     </div>
+
     <div class="tile">
       <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=SP%3ASPX"></iframe>
     </div>
+
     <div class="tile">
-      <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=NASDAQ%3ACOMP"></iframe>
+      <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=NASDAQ%3AIXIC"></iframe>
     </div>
+
     <div class="tile">
       <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TVC%3AUSOIL"></iframe>
     </div>
+
     <div class="tile">
       <iframe src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?symbol=TVC%3AGOLD"></iframe>
     </div>
+
   </div>
 </div>
 </body>
